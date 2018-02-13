@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://source/network/NetworkMaster.gd" type="Script" id=1]
-[ext_resource path="res://scenes/nodes/PlayerEntityInstantiator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/nodes/player_entity_instantiator/PlayerEntityInstantiator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/player_entity_instantiator/PlayerEntityInstantiatorMaster.gd" type="Script" id=3]
-[ext_resource path="res://scenes/nodes/Character.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/nodes/World.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/nodes/Camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/nodes/character/CharacterSlave.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/nodes/world/World.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/nodes/camera/Camera.tscn" type="PackedScene" id=6]
 
 [node name="Network" type="Node"]
 
@@ -18,7 +18,7 @@ _maximum_players = 16
 
 script = ExtResource( 3 )
 _entities_path = NodePath("../World/Entities")
-_entity = ExtResource( 4 )
+_slave_entity = ExtResource( 4 )
 
 [node name="World" parent="." index="1" instance=ExtResource( 5 )]
 
@@ -26,7 +26,7 @@ _entity = ExtResource( 4 )
 
 [connection signal="player_added" from="." to="PlayerEntityInstantiator" method="_on_player_added" flags=3]
 
-[connection signal="player_removed" from="." to="PlayerEntityInstantiator" method="_on_player_removed"]
+[connection signal="player_removed" from="." to="PlayerEntityInstantiator" method="_on_player_removed" flags=3]
 
 
 [editable path="World"]

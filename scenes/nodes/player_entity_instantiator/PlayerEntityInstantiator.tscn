@@ -6,6 +6,5 @@
 
 script = ExtResource( 1 )
 _entities_path = null
-_entity = null
 
 

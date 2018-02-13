@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://source/character/Controller.gd" type="Script" id=1]
+[ext_resource path="res://scenes/nodes/character/Character.tscn" type="PackedScene" id=2]
+
+[node name="Character" type="Spatial"]
+
+script = ExtResource( 1 )
+_speed = 3
+
+[node name="KinematicBody" parent="." index="0" instance=ExtResource( 2 )]
+
+

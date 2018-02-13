@@ -12,13 +12,9 @@ rings = 8
 radius = 1.0
 height = 1.0
 
-[node name="Character" type="Spatial" index="0"]
+[node name="KinematicBody" type="KinematicBody"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="KinematicBody" type="KinematicBody" parent="." index="0"]
-
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -32,7 +28,7 @@ axis_lock_angular_z = false
 collision/safe_margin = 0.001
 _sections_unfolded = [ "Transform" ]
 
-[node name="MeshInstance" type="MeshInstance" parent="KinematicBody" index="0"]
+[node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 
 layers = 1
 material_override = null
@@ -48,7 +44,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="KinematicBody" index="1"]
+[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
 
 shape = SubResource( 2 )
 disabled = false
