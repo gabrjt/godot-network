@@ -9,9 +9,9 @@ export var _speed = 3 # TODO: Speed Node; Inject dependency; Speed Node authorit
 
 var _motion = Vector3()
 
-slave var _slave_motion = Vector3()
+sync var _sync_motion = Vector3()
 
-slave var _slave_origin = Vector3()
+sync var _sync_origin = Vector3()
 
 var _linear_velocity = Vector3()
 

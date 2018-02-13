@@ -4,9 +4,9 @@ extends "Character.gd"
 func _process(delta):
 	_motion = _process_walk_inputs()
 	
-	#if _can_sync():
-	#	rset_unreliable("_slave_motion", _motion)
-	#	rset_unreliable("_slave_origin", _kinematic_body.transform.origin)
+	if _can_sync():
+		rset_unreliable("_sync_motion", _motion)
+		rset_unreliable("_sync_origin", _kinematic_body.transform.origin)
 
 func _process_walk_inputs():
 	var motion = Vector3()
