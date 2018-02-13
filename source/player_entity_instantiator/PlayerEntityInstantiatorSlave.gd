@@ -19,4 +19,4 @@ func _set_network_master(id, entity):
 
 # RPCs
 slave func slave_add_entity(id, origin):
-	_add_entity(id, origin)
+	call_deferred("_add_entity", id, origin)

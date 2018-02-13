@@ -22,19 +22,20 @@ func _add_entity(id, origin):
     _entities.add_child(entity)
     return entity
 
-func _remove_entity(id):		
-    var entity = _entities.get_node(str(id))
-    _entities.remove_child(entity)
-    entity.free()
-
 func _set_network_master(id, entity):
     pass
     
+func _add_entity_as_network_master(id, origin):
+    _set_network_master(id, _add_entity(id, origin))
+
+func _remove_entity(id):		
+    var entity = _entities.get_node(str(id))
+    _entities.remove_child(entity)
+    entity.queue_free()
+
 # RPCs
 sync func sync_add_entity(id, origin):
-    var entity = _add_entity(id, origin)
-    _set_network_master(id, entity)
-    return entity
+    call_deferred("_add_entity_as_network_master", id, origin)
     
 sync func sync_remove_entity(id):
-    _remove_entity(id)
+    call_deferred("_remove_entity", id)

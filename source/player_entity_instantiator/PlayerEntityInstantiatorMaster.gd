@@ -32,5 +32,4 @@ func _on_player_added(id):
 func _on_player_removed(id):
     if id == 1: # Player Server has no Player Entity; it has NPC entities
         return
-        
     rpc("sync_remove_entity", id)
