@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://source/player_entity_instantiator/PlayerEntityInstantiator.gd" type="Script" id=1]
+
+[node name="PlayerEntityInstantiator" type="Node" index="0"]
+
+script = ExtResource( 1 )
+_entities_path = null
+_entity = null
+
+

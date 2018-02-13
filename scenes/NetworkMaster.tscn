@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://source/network/NetworkMaster.gd" type="Script" id=1]
+[ext_resource path="res://scenes/nodes/PlayerEntityInstantiator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://source/player_entity_instantiator/PlayerEntityInstantiatorMaster.gd" type="Script" id=3]
+[ext_resource path="res://scenes/nodes/Character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/nodes/World.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/nodes/Camera.tscn" type="PackedScene" id=6]
+
+[node name="Network" type="Node" index="0"]
+
+script = ExtResource( 1 )
+_server_port = 8910
+_auto_connect = true
+_maximum_players = 16
+
+[node name="PlayerEntityInstantiator" parent="." index="0" instance=ExtResource( 2 )]
+
+script = ExtResource( 3 )
+_entities_path = NodePath("../World/Entities")
+_entity = ExtResource( 4 )
+
+[node name="World" parent="." index="1" instance=ExtResource( 5 )]
+
+[node name="Camera" parent="." index="2" instance=ExtResource( 6 )]
+
+[connection signal="player_added" from="." to="PlayerEntityInstantiator" method="_on_player_added" flags=3]
+
+[connection signal="player_removed" from="." to="PlayerEntityInstantiator" method="_on_player_removed"]
+
+
+[editable path="World"]
