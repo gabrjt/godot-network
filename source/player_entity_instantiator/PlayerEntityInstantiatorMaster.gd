@@ -1,5 +1,10 @@
 extends "PlayerEntityInstantiator.gd"
 
+# Functions
+func _set_network_master(id, entity):    
+    entity.set_network_master(id)
+    print("Granting authority of Entity %s to Player %d" % [entity.name, id])
+
 # Callbacks
 func _on_player_added(id):
     if id == 1: # Player Server has no Player Entity; it has NPC entities

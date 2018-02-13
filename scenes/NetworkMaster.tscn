@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/nodes/World.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/nodes/Camera.tscn" type="PackedScene" id=6]
 
-[node name="Network" type="Node" index="0"]
+[node name="Network" type="Node"]
 
 script = ExtResource( 1 )
 _server_port = 8910
